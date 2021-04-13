@@ -4,22 +4,41 @@ body {
     /*font-size: 16px;*/
     line-height: 1.7;
     color: $color-grey-dark;
-    /*padding: 30px;*/
-    padding: 3rem;
 }
 
 .heading-primary {
     color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden;
+    margin-bottom: 6rem;
 
     &--main {
         display: block;
-        font-size: 60px;
+        font-size: 6rem;
+        /*font-size: $default-font-size;*/
         font-weight: 400;
-        letter-spacing: 35px;
+        letter-spacing: 3.5rem;
     
         animation: moveInLeft 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 5rem;
+
+        }
+
+        // POSSIBLE FIX FOR SPECIFICITY OVERIDRE mixin breakpoint issue
+        /*@include respond(tab-land) { // width < 900?
+            font-size: 56.25%; //1rem =9px, 9/16 = 56%
+        }
+    
+        @include respond(tab-port) { // width < 600?
+            font-size: 50%; //1rem = 8px, 8/16 = 50%
+        }
+    
+        @include respond(big-desktop) {
+            font-size: 75%; //1rem = 12, 12/16 = 75%
+        }*/
     }
     
     &--sub {
@@ -30,6 +49,10 @@ body {
         margin-bottom: 40px;
     
         animation: moveInRight 1s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+        }
     
        /* animation: delay 3s;
        animation-iteration-count: 3;*/
@@ -46,6 +69,14 @@ body {
     color: transparent;
     letter-spacing: .2rem;
     transition: all 2s;
+
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(15deg) scale(1.1);
